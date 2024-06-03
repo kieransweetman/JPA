@@ -1,7 +1,10 @@
 package fr.diginamic.api;
 
+import java.util.List;
+
 import fr.diginamic.entities.Book;
 import fr.diginamic.entities.Client;
+import fr.diginamic.entities.Loan;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -18,7 +21,11 @@ public class Library {
         Client c = em.find(Client.class, 1);
         if (c != null) {
 
-            System.out.println(c.toString());
+            List<Book> bookLoans = c.getLoans().get(0).getBooks();
+
+            for (Book b : bookLoans) {
+                System.out.println(b.toString());
+            }
         }
 
         tm.rollback();

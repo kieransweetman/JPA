@@ -1,13 +1,22 @@
 package fr.diginamic.entities;
 
+import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
+@Entity
+@Table(name = "loan")
 public class Loan {
 
     @Id
@@ -15,16 +24,20 @@ public class Loan {
     private int id;
 
     @Temporal(TemporalType.DATE)
-    private String startDate;
+    private Date startDate;
 
     @Temporal(TemporalType.DATE)
-    private String endDate;
+    private Date endDate;
 
     @Column(name = "duration")
     private int duration;
 
-    @OneToMany(mappedBy = "id", targetEntity = Client.class)
-    private int clientId;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    @ManyToMany(mappedBy = "loans")
+    private List<Book> books;
 
     public int getId() {
         return id;
@@ -34,19 +47,19 @@ public class Loan {
         this.id = id;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
@@ -58,18 +71,26 @@ public class Loan {
         this.duration = duration;
     }
 
-    public int getClientId() {
-        return clientId;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
+    public void setClient(Client c) {
+        this.client = c;
     }
 
     @Override
     public String toString() {
         return "Loan [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", duration=" + duration
-                + ", clientId=" + clientId + "]";
+                + ", clientId=" + client.getId() + "]";
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
 }

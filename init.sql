@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS    BOOKLOAN (
     FOREIGN KEY (LOAN_ID) REFERENCES LOAN(ID)
 );
 
-insert into CLIENT (NOM, NAME) VALUES ('Brigand', 'Pierre');
-insert into CLIENT (NOM, NAME) VALUES ('YU', 'Cheng');
-insert into CLIENT (NOM, NAME) VALUES ('BERRAD', 'Hicham');
+insert into CLIENT VALUES (1, 'Brigand', 'Pierre');
+insert into CLIENT VALUES (2, 'YU', 'Cheng');
+insert into CLIENT VALUES (3, 'BERRAD', 'Hicham');
 insert into BOOK VALUES (1, 'Vingt mille lieues sous les mers', 'Jules Verne');
 insert into BOOK VALUES (2, 'Germinal', 'Emile Zola');
 insert into BOOK VALUES (3, 'Guerre et paix', 'Léon Tolstoï');

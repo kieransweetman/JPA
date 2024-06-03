@@ -1,10 +1,15 @@
 package fr.diginamic.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +25,10 @@ public class Book {
 
     @Column(name = "author", nullable = false)
     private String author;
+
+    @ManyToMany
+    @JoinTable(name = "BookLoan", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "loan_id"))
+    private List<Loan> loans;
 
     public int getId() {
         return id;
