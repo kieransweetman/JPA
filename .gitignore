@@ -1,0 +1,34 @@
+# Maven target directory
+target/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Maven build files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Logs
+log/
+logs/
+*.log
+
+# Eclipse specific files
+.classpath
+.project
+.settings/
+
+# IntelliJ specific files
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
