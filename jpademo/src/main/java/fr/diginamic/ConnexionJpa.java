@@ -1,6 +1,6 @@
 package fr.diginamic;
 
-import fr.diginamic.entities.Region;
+import fr.diginamic.entities.Book;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -17,14 +17,14 @@ public class ConnexionJpa {
         EntityTransaction tm = em.getTransaction();
 
         tm.begin();
-        Region r = em.find(Region.class, "0");
+        Book b = em.find(Book.class, "0");
 
-        if (r != null) {
-            em.remove(r);
+        if (b != null) {
+            em.remove(b);
         }
 
         tm.commit();
 
-        System.out.println(r.toString());
+        System.out.println(b.toString());
     }
 }

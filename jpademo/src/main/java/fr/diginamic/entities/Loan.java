@@ -79,18 +79,18 @@ public class Loan {
         this.client = c;
     }
 
-    @Override
-    public String toString() {
-        return "Loan [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", duration=" + duration
-                + ", clientId=" + client.getId() + "]";
-    }
-
     public List<Book> getBooks() {
         return books;
     }
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    @Override
+    public String toString() {
+        return "Loan [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", duration=" + duration
+                + ", clientId=" + client.getId() + "]";
     }
 
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.diginamic.entities.Book;
 import fr.diginamic.entities.Client;
-import fr.diginamic.entities.Loan;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
